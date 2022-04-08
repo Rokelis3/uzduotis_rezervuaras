@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                Rezervuaro skaičiuoklė
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="" class="form-label">Įveskite rezervuaro talpą litrais</label>
+                    <input class="form-control" type="number" id="talpa" name="talpa" [(ngModel)]="talpa">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Įveskite rezervuaro pildymop greitį litrai/valandą</label>
+                    <input class="form-control" type="number" id="pildymoGreitis" name="pildymoGreitis" [(ngModel)]="pildymoGreitis">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Įveskite kiek laiko rezervuaras bus pildomas litrai/valandą</label>
+                    <input class="form-control" type="number" id="laikas" name="laikas" [(ngModel)]="laikas">
+                </div>
+                <button class="btn btn-success" type="button" (click)="skaiciuoti()">Skaičiuoti</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header" >
+                Rezultatai
+            </div>
+            <div *ngIf="rezervuaras!=0" class="alert" [ngClass]="{'alert-info':(rezervuaras>=80 && rezervuaras<99),'alert-danger':rezervuaras>=100}">
+                Rezervuaras užsipildęs {{ rezervuaras }}%
+            </div>
+            <div class="card-body">
+                <div>
+                Iveskite skaičiuoklėje duomenis ir paspauskite skaičiuoti
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
